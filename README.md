@@ -4,7 +4,7 @@
 
 A robotic waste sorting system that uses computer vision to identify recyclable items (plastic, metal, paper/cardboard) and a 6-DOF robotic arm to sort them into the correct bins. Controllable via natural language commands.
 
-**Team MOCK:** Kaylee Auguillard · Oren Moreno · Cheyenne Hathaway · Maria Tanweer Chachar
+**Team MOCK:** Kaylee Auguillard · Oren Moreno · Cheyenne Hathaway · Maira Tanweer Chachar
 
 ---
 
