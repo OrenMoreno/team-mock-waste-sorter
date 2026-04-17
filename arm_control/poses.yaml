@@ -1,0 +1,47 @@
+# DOFBOT Named Poses
+# Angles: {servo_id: degrees}
+# Update these values using keyboard_teleop.py on the real arm.
+# Use the 'p' key to print current angles when the arm is 
+# in the position you want.
+
+home:
+  1: 90
+  2: 90
+  3: 90
+  4: 90
+  5: 90
+  6: 90
+
+# Sorting bin positions (UPDATE WITH REAL VALUES)
+plastic_bin:
+  1: 45     # base rotated left
+  2: 70     # shoulder tilted forward
+  3: 60     # elbow extended
+  4: 90
+  5: 90
+  6: 60     # gripper open
+
+metal_bin:
+  1: 135    # base rotated right
+  2: 70
+  3: 60
+  4: 90
+  5: 90
+  6: 60
+
+default_bin:
+  1: 90     # straight ahead
+  2: 60     # reaching forward
+  3: 50
+  4: 90
+  5: 90
+  6: 60
+
+# Pick position (arm reaching down to grab an object)
+pick_hover:
+  1: 90     # will be overridden by target direction
+  2: 45
+  3: 45
+  4: 90
+  5: 90
+  6: 60     # gripper open
