@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vision_node</name>
+  <version>0.0.1</version>
+  <description>The vision_node package for object detection using YOLOv8n.</description>
+
+  <maintainer email="developer@example.com">Vision & AI Developer</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>onnxruntime</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+
+  <export>
+  </export>
+</package>
