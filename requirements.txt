@@ -1,0 +1,64 @@
+# =============================================================================
+# Team MOCK — AI-Powered Robotic Waste Sorting System
+# ITAI 4376 · Spring 2026
+# -----------------------------------------------------------------------------
+# Python dependencies for laptop-side development (Windows / macOS / Linux).
+# Install all dependencies into your virtual environment with:
+#
+#     pip install -r requirements.txt
+#
+# For full setup instructions (venv creation, activation, IDE configuration),
+# see dev_environment_setup.md in the repo root.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# NOT INCLUDED IN THIS FILE (installed separately, outside pip):
+#
+#   1. ROS Melodic
+#        Installed via apt on Ubuntu 18.04 (or in Docker using the
+#        osrf/ros:melodic-desktop image).  Provides rospy, std_msgs,
+#        sensor_msgs, and catkin build tools used by vision_node and
+#        decision_node. See https://wiki.ros.org/melodic/Installation
+#
+#   2. Arm_Lib  (Yahboom DOFBOT Python library)
+#        Installed on the Jetson Nano only, from the Yahboom SDK. The
+#        arm_control code uses try/except ImportError to run in DRY-RUN
+#        mode on laptops where Arm_Lib is not available — no action
+#        needed on dev machines.
+#
+#   3. PyTorch with CUDA  (for GPU training, Vision & AI role only)
+#        The default `torch` on PyPI is a CPU-only build, which is fine
+#        for smoke tests and inference on a laptop. If you have an
+#        NVIDIA GPU and want to TRAIN the model, install torch BEFORE
+#        running `pip install -r requirements.txt`, using the CUDA
+#        wheel index. Example for CUDA 11.8:
+#
+#            pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#
+#        See dev_environment_setup.md §7 for full GPU install steps.
+# -----------------------------------------------------------------------------
+
+
+# ---- Core utilities (everyone needs these) ----------------------------------
+PyYAML>=6.0              # arm_control/pose_loader.py reads poses.yaml
+numpy>=1.24              # shared across vision, arm_control math, and scripts
+
+
+# ---- Computer Vision (required for vision_node and webcam testing) ----------
+opencv-python>=4.8       # image I/O, preprocessing, webcam capture
+onnx>=1.15               # ONNX model format support
+onnxruntime>=1.16        # ONNX inference on laptop / Jetson CPU
+                         # (on Jetson with GPU: use onnxruntime-gpu instead)
+
+
+# ---- Model Training (Vision & AI role — Kaylee) -----------------------------
+# Heavy dependencies (~2 GB with CUDA, ~500 MB CPU-only). Skip these by
+# commenting them out if you are ONLY working on arm_control, NLP, docs, or
+# QA — you do not need them to run the dry-run arm code or run tests.
+ultralytics>=8.0         # YOLOv8 training, inference, and ONNX export
+torch>=2.0               # PyTorch — CPU wheel from PyPI by default
+torchvision>=0.15        # image transforms and pretrained backbones
+
+
+# ---- Development and Testing ------------------------------------------------
+pytest>=7.4              # test runner for tests/ directory
